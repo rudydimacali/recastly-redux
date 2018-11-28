@@ -5,8 +5,12 @@ import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
 var handleVideoSearch = (q) => {
-  type: 'HANDLE_VIDEO_SEARCH';
-  query: q;
+  var options = {
+    key: YOUTUBE_API_KEY,
+    query: q,
+    max: 5
+  };
+  return (options) => {searchYouTube(options);}
 };
 
 export default handleVideoSearch;
